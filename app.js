@@ -40,6 +40,15 @@ app.use("/api", stripeRoutes)
 //PORT
 const port = process.env.PORT || 8000;
 
+
+// Making Build Folder as Public 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 //Starting a server
 app.listen(port, () => {
   console.log(`app is running at ${port}`);
@@ -52,9 +61,3 @@ app.listen(port, () => {
 
 
 
-// Making Build Folder as Public 
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
