@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+const path = require('path');
 //My routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user")
